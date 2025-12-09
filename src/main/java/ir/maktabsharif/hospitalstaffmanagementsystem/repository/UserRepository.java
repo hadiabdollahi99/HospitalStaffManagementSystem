@@ -10,8 +10,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
     Optional<User> findByUsername(String username);
     boolean existsByUsername(String username);
 
-    List<User> findByDepartment(String department);
-    List<User> findByJobTitle(String jobTitle);
+    List<User> findByDepartmentContainingIgnoreCase(String department);
+    List<User> findByJobTitleContainingIgnoreCase(String jobTitle);
     List<User> findByNameContainingIgnoreCase(String name);
 
 }

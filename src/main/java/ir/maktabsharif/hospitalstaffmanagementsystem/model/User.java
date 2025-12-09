@@ -37,7 +37,7 @@ public class User extends BaseEntity<Long> implements Serializable {
     private Set<Role> roles;
 
 
-    @OneToMany(mappedBy = "staff")
+    @OneToMany(mappedBy = "staff",cascade = CascadeType.ALL)
     private List<LeaveRequest> leaveRequests;
 
 

@@ -99,9 +99,9 @@ public class UserService implements UserDetailsService {
         if (name != null && !name.isEmpty()) {
             return userRepository.findByNameContainingIgnoreCase(name);
         } else if (department != null && !department.isEmpty()) {
-            return userRepository.findByDepartment(department);
+            return userRepository.findByDepartmentContainingIgnoreCase(department);
         } else if (jobTitle != null && !jobTitle.isEmpty()) {
-            return userRepository.findByJobTitle(jobTitle);
+            return userRepository.findByJobTitleContainingIgnoreCase(jobTitle);
         }
         return userRepository.findAll();
     }
