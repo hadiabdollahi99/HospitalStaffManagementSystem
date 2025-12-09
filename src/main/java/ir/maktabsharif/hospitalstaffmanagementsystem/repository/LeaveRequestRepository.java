@@ -12,7 +12,6 @@ public interface LeaveRequestRepository extends JpaRepository<LeaveRequest,Long>
 
     List<LeaveRequest> findByStaff(User staff);
     List<LeaveRequest> findByStatus(Status status);
-    List<LeaveRequest> findByStaffAndStartDateBetween(User staff, LocalDate start, LocalDate end);
     int countByStatus(Status status);
 
 }

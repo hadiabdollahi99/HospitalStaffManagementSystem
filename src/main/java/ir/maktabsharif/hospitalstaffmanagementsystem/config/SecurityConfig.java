@@ -25,9 +25,7 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/login-process")
                         .failureUrl("/login?error=true")
-                        .defaultSuccessUrl("/") // اگر کاربر مستقیم لاگین کرده باشد
                         .successHandler((request, response, authentication) -> {
-                            // بررسی نقش کاربر
                             if (authentication.getAuthorities()
                                     .stream()
                                     .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
