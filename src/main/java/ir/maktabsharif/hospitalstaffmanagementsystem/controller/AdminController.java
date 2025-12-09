@@ -7,8 +7,6 @@ import ir.maktabsharif.hospitalstaffmanagementsystem.model.User;
 import ir.maktabsharif.hospitalstaffmanagementsystem.service.LeaveRequestService;
 import ir.maktabsharif.hospitalstaffmanagementsystem.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,14 +36,10 @@ public class AdminController {
     }
 
     @GetMapping("/staff")
-    public String listStaff(Model model,
-                            @RequestParam(defaultValue = "0") int page,
-                            @RequestParam(defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public String listStaff(Model model) {
         List<User> staff = userService.getAllUsers();
 
         model.addAttribute("staff", staff);
-        model.addAttribute("currentPage", page);
         return "admin/staff-list";
     }
 
